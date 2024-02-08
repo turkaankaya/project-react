@@ -8,26 +8,16 @@ import {
 import { useParams } from 'react-router-dom'
 export default function ProductDetails() {
   let { name } = useParams()//  parametreleri obje olarak getirir.
- /* const [data,setData]= useState({});
+  const [data,setData]= useState({});
   useEffect(()  =>{
     const getData= () =>{
-    fetch('http://localhost:3000/products')
+    fetch('http://localhost:3000/products?name='+name)
  
       .then(response => response.json())
      .then(data => setData(data));
    }
   getData()
-    },[name])*/
-    const [data, setData] = useState([]);
-
-    useEffect(() => {
-      async function fetchData() {
-        const response = await fetch('api/db.json');
-        const json = await response.json();
-        setData(json);
-      }
-      fetchData();
-    }, []);
+    },[name])
     
   return (
     <div>
